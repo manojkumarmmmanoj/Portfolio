@@ -2,17 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Orbitron:wght@400;700&display=swap');
 
 :root {
-    /* Colors - Dark Mode Default */
-    --bg-color: #0f0f16;
-    --text-color: #e0e0e0;
-    --accent-color: #00f2ff;
-    /* Cyan Neon */
-    --secondary-accent: #bc13fe;
-    /* Purple Neon */
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-blur: 10px;
-    --card-hover-bg: rgba(255, 255, 255, 0.1);
+    /* Colors - Light Orange & White Theme */
+    --bg-color: #fffaf0;
+    --text-color: #2d2d2d;
+    --accent-color: #ff6600;
+    /* Vivid Orange */
+    --secondary-accent: #ff9933;
+    /* Light Orange */
+
+    --glass-bg: rgba(255, 255, 255, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-blur: 20px;
+    --card-hover-bg: rgba(255, 102, 0, 0.05);
 
     /* Fonts */
     --font-primary: 'Outfit', sans-serif;
@@ -23,16 +24,15 @@
     --container-width: 1200px;
 }
 
-/* Light Mode Variables override via JS class */
+/* Dark Mode Variables (Optional Toggle) */
 body.light-mode {
-    --bg-color: #f0f2f5;
-    --text-color: #1a1a1a;
-    --accent-color: #007bff;
-    --secondary-accent: #6f42c1;
-    --glass-bg: rgba(255, 255, 255, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --glass-blur: 15px;
-    --card-hover-bg: rgba(255, 255, 255, 0.8);
+    /* Keeping class name for toggle compatibility, but this can serve as "Dark Mode" now if toggled */
+    --bg-color: #1f242d;
+    --text-color: #fff;
+    --accent-color: #0ef;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-hover-bg: #323946;
 }
 
 * {
@@ -43,13 +43,14 @@ body.light-mode {
 }
 
 body {
-    background-color: var(--bg-color);
+    background: linear-gradient(120deg, #ffffff 0%, #fff0d4 100%);
+    /* Orange-White Mix */
+    background-attachment: fixed;
     color: var(--text-color);
     font-family: var(--font-primary);
     overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
     cursor: none;
-    /* Custom cursor */
 }
 
 /* Custom Scrollbar */
@@ -266,6 +267,36 @@ body.hovering .custom-cursor {
     gap: 20px;
 }
 
+/* Hero Social Icons */
+.hero-social {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.hero-social a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    transition: 0.3s;
+    text-decoration: none;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.hero-social a:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--accent-color);
+    transform: translateY(-5px);
+}
+
 .btn {
     padding: 12px 30px;
     border: none;
@@ -310,27 +341,21 @@ body.hovering .custom-cursor {
     height: 100%;
 }
 
-.blob {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    animation: morph 8s ease-in-out infinite;
-    position: relative;
-    box-shadow: 0 0 50px rgba(0, 242, 255, 0.3);
-}
+
 
 .hero-img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     object-fit: cover;
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    border-radius: 15px;
+    /* Box type */
     z-index: 2;
-    animation: morph 8s ease-in-out infinite;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    animation: none;
 }
 
 /* Scroll Indicator */
@@ -834,19 +859,7 @@ footer {
     }
 }
 
-@keyframes morph {
-    0% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
 
-    50% {
-        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-    }
-
-    100% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
-}
 
 @keyframes scrollMouse {
     0% {
