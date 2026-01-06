@@ -3,7 +3,7 @@
 
 :root {
     /* Colors - Light Orange & White Theme */
-    --bg-color: #fffaf0;
+    --bg-color: linear-gradient(120deg, #ffffff 0%, #fff0d4 100%);
     --text-color: #2d2d2d;
     --accent-color: #ff6600;
     /* Vivid Orange */
@@ -43,8 +43,8 @@ body.light-mode {
 }
 
 body {
-    background: linear-gradient(120deg, #ffffff 0%, #fff0d4 100%);
-    /* Orange-White Mix */
+    background: var(--bg-color);
+    /* Orange-White Mix handled in variable */
     background-attachment: fixed;
     color: var(--text-color);
     font-family: var(--font-primary);
@@ -351,7 +351,7 @@ body.hovering .custom-cursor {
     width: 95%;
     height: 95%;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 50%;
     /* Box type */
     z-index: 2;
     border: 5px solid rgba(255, 255, 255, 0.5);
